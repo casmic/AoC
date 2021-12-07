@@ -19,10 +19,9 @@ def grow_fishes(fishes, days):
 
     for x in range(1, len(fishes)):
         fishes[x-1] = fishes[x]
-        fishes[x] = 0
 
     fishes[6] += fishes_to_add
-    fishes[8] += fishes_to_add
+    fishes[8] = fishes_to_add
 
     return(grow_fishes(fishes, days -1))
 
@@ -32,7 +31,6 @@ if __name__ == "__main__":
 
     fishes = init_fishes(fishes_str)
     fishes = grow_fishes(fishes, 80)
-
     print("06A - lanternfishes number:", sum(fishes))
 
     fishes = init_fishes(fishes_str)
