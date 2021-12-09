@@ -7,7 +7,6 @@ def example(value1, value2):
     return value1 + value2
 
 def get_low_points(input_data:Point, low_points:List):
-    
     if(input_data is None):
         return low_points
 
@@ -30,9 +29,6 @@ def calc_risk_level(low_points):
     return result
     
 def calc_basin_size(point:Point, size):
-
-
-    #print(point)
     if(point is None or point._visited or point._value==9):
         return size
 
@@ -61,7 +57,6 @@ def calc_total_three_largest_basins_size(low_points):
     return return_val
 
 def ProcessInputLine(line, head:Point , left_point:Point, up_point:Point):
-
     point = Point(int(line[0]))
     next_up_point = None
 
