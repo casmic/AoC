@@ -1,6 +1,7 @@
 _opening_chars = ["(","[","{","<"]
 
 class Delimiter:
+
     def __init__(self, init_char) -> None:
         self._character = init_char
         self._completion_score = 0
@@ -32,7 +33,6 @@ class Delimiter:
         return self._character
 
     def is_opening_char(self):
-
         if(self._character in _opening_chars):
             return True
         else:
