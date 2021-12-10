@@ -2,7 +2,7 @@ import unittest
 from main import (
     example,
     count_obvious_result_patterns,
-    process_input_dataA,
+    process_input_data,
     get_result_number
 )
 
@@ -47,14 +47,14 @@ class TestsMain(unittest.TestCase):
         expected_output = [
             ["cdfeb", "fcadb", "cdfeb", "cdbaf"]
         ]
-        inputs, results=process_input_dataA(input_data)
+        inputs, results=process_input_data(input_data)
 
         self.assertListEqual(results, expected_output)
 
     def test_get_result_number_single(self):
         input_data=['acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf\n']
         expected_output = "5353"
-        inputs, outputs = process_input_dataA(input_data)
+        inputs, outputs = process_input_data(input_data)
         number = get_result_number(inputs[0], outputs[0])
         self.assertEqual(number, expected_output)
 
@@ -62,7 +62,7 @@ class TestsMain(unittest.TestCase):
         expected_output = 61229
         with open("test_input_08.txt") as f:
             data = f.readlines()
-        inputs, outputs = process_input_dataA(data)
+        inputs, outputs = process_input_data(data)
         result = 0
         for i in range(len(inputs)):
             number = get_result_number(inputs[i], outputs[i])

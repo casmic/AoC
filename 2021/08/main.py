@@ -1,12 +1,10 @@
 #!/usr/bin/python3
 from typing import List
-#from unittest import result
 
 def example(value1, value2):
     return value1 + value2
 
 def count_obvious_result_patterns(cyphers):
-
     obvious_patterns_count = 0
 
     if(cyphers is not None):
@@ -18,7 +16,7 @@ def count_obvious_result_patterns(cyphers):
 
     return obvious_patterns_count
 
-def process_input_dataA(data):
+def process_input_data(data):
     data_inputs = []
     data_results = []
     for line in data:
@@ -28,13 +26,6 @@ def process_input_dataA(data):
         data_inputs.append(inputs)
         data_results.append(outputs)
     return data_inputs, data_results
-
-def _sort_signal(signal):
-    signal_list = [signal[x] for x in range(len(signal))]
-    signal_list.sort()
-    sorted_signal= "".join(signal_list)
-
-    return sorted_signal
 
 def _signal_to_set(signal):
     return_set = set()
@@ -55,8 +46,6 @@ def get_result_number(input:List, output:List):
         signals_dict['len'][i] = []
 
     for signal in input:
-        #sorted_signal = _sort_signal(signal)
-        #signals_dict['len'][sig_len].append(sorted_signal)
         sig_set=_signal_to_set(signal)
         sig_len = len(sig_set)
 
@@ -112,23 +101,23 @@ def get_result_number(input:List, output:List):
     return number
 
 def get_results_number_sum(input, outputs):
-
     result_sum =0 
     for i in range(len(input)):
         result_sum += get_result_number(input[i], outputs[i])
 
     return result_sum
+
 if __name__ == "__main__":
     with open("input_08.txt") as f:
         data = f.readlines()
-        signals_inputs, signals_results = process_input_dataA(data)
-        obvious_results_count = count_obvious_result_patterns(signals_results)
+    
+    signals_inputs, signals_results = process_input_data(data)
 
-        print('08A - obvious results count:', obvious_results_count)
-        result = 0
-        for i in range(len(signals_inputs)):
-            number = get_result_number(signals_inputs[i], signals_results[i])
-            result += int(number)
+    obvious_results_count = count_obvious_result_patterns(signals_results)
+    print('08A - obvious results count:', obvious_results_count)
 
-        print('08B - sum of all outputs:', result)
-    pass
+    result = 0
+    for i in range(len(signals_inputs)):
+        number = get_result_number(signals_inputs[i], signals_results[i])
+        result += int(number)
+    print('08B - sum of all outputs:', result)
