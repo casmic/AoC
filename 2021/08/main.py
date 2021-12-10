@@ -13,7 +13,7 @@ def count_obvious_result_patterns(cyphers):
                 result_len = len(result)
                 if (result_len == 2 or result_len==3 or result_len==4 or result_len==7):
                     obvious_patterns_count += 1
-
+ 
     return obvious_patterns_count
 
 def process_input_data(data):
